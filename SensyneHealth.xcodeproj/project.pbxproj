@@ -30,6 +30,7 @@
 		8121D6002553525B009FD5E0 /* FilterPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8121D5FF2553525B009FD5E0 /* FilterPopUpViewController.swift */; };
 		8121D605255353A2009FD5E0 /* FilterPopupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8121D604255353A2009FD5E0 /* FilterPopupViewModel.swift */; };
 		8121D60A255378A8009FD5E0 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8121D609255378A8009FD5E0 /* ArrayExtension.swift */; };
+		8121D60F255383BB009FD5E0 /* HospitalListViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8121D60E255383BB009FD5E0 /* HospitalListViewControllerTest.swift */; };
 		B6FD670B7014373349F3F005 /* Pods_SensyneHealthTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D1565620ABC80E1DE9ED8D1 /* Pods_SensyneHealthTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +82,7 @@
 		8121D5FF2553525B009FD5E0 /* FilterPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPopUpViewController.swift; sourceTree = "<group>"; };
 		8121D604255353A2009FD5E0 /* FilterPopupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPopupViewModel.swift; sourceTree = "<group>"; };
 		8121D609255378A8009FD5E0 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
+		8121D60E255383BB009FD5E0 /* HospitalListViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalListViewControllerTest.swift; sourceTree = "<group>"; };
 		9B50648AC1790ACC46637E3F /* Pods-SensyneHealthTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SensyneHealthTests.debug.xcconfig"; path = "Target Support Files/Pods-SensyneHealthTests/Pods-SensyneHealthTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A96D9CC2EA0E625493B972CC /* Pods-SensyneHealth-SensyneHealthUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SensyneHealth-SensyneHealthUITests.release.xcconfig"; path = "Target Support Files/Pods-SensyneHealth-SensyneHealthUITests/Pods-SensyneHealth-SensyneHealthUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C3751C18C68EE1B48AE19ED3 /* Pods-SensyneHealthTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SensyneHealthTests.release.xcconfig"; path = "Target Support Files/Pods-SensyneHealthTests/Pods-SensyneHealthTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 			children = (
 				8121D50225520373009FD5E0 /* SensyneHealthTests.swift */,
 				8121D50425520373009FD5E0 /* Info.plist */,
+				8121D60E255383BB009FD5E0 /* HospitalListViewControllerTest.swift */,
 			);
 			path = SensyneHealthTests;
 			sourceTree = "<group>";
@@ -540,6 +543,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8121D60F255383BB009FD5E0 /* HospitalListViewControllerTest.swift in Sources */,
 				8121D50325520373009FD5E0 /* SensyneHealthTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

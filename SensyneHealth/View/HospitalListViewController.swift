@@ -42,9 +42,9 @@ class HospitalListViewController: UIViewController {
     }
     
     //MARK: Loading Data
-    fileprivate func loadData(){
+    func loadData(){
         //self.showProgress() // uncomment this if required a progress view to indicate user
-        hospitalListViewModal.hospitallist.asObservable().subscribe { (event) in
+        hospitalListViewModal.hospitalList.asObservable().subscribe { (event) in
             if let hospitalList = event.element{
                 self.hospitals.removeAll()
                 self.hospitals.append(contentsOf: hospitalList.0)
