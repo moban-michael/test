@@ -51,7 +51,6 @@ class HospitalListViewControllerTest: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-    /* Testing the delegate and data source methods*/
     
     /* Testing the tableview custom cell*/
     func testTableViewHasCells() {
@@ -61,6 +60,7 @@ class HospitalListViewControllerTest: XCTestCase {
                         "TableView should be able to dequeue cell with identifier: 'Cell Identifier'")
     }
     
+    /* Testing the delegate and data source methods*/
     func testTableViewDelegateDatasourceIsViewController() {
         XCTAssertTrue(tableView.delegate === controller,
                       "Controller should be delegate for the table view")
@@ -68,6 +68,45 @@ class HospitalListViewControllerTest: XCTestCase {
                       "Controller should be delegate for the table view")
     }
     
+    func testThatViewLoads(){
+        XCTAssertNotNil(self.controller.view, "View not initiated properly");
+    }
+    
+    func testHasTitleViewNamedHospitals() {
+        
+        let title = controller.navigationItem.title
+        XCTAssertEqual(title, "Hospitals")
+    }
+    
+    func testHasRightBarButtonItem() {
+        
+        XCTAssertNotNil(self.controller.navigationItem.rightBarButtonItem)
+    }
+    
+    func testHasRightBarButtonItemTargetCorrectlyAssigned() {
+        
+        if let rightBarButtonItem = self.controller.navigationItem.rightBarButtonItem {
+            
+            XCTAssertNotNil(rightBarButtonItem.target)
+            XCTAssert(rightBarButtonItem.target === self.controller)
+        }
+        else {
+            
+            XCTAssertTrue(false)
+        }
+    }
+    
+    func testHasRightBarButtonItemActionMethodCorrectlyAssigned() {
+        
+        if let rightBarButtonItem = self.controller.navigationItem.rightBarButtonItem {
+            
+            XCTAssertTrue(rightBarButtonItem.action!.description == "filterTappedWithSender:")
+        }
+        else {
+            
+            XCTAssertTrue(false)
+        }
+    }
     
     func testloadData() {
         weak var exception = expectation(description: "Wait for call completion")

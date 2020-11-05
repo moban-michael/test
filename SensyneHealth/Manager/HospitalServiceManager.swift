@@ -33,7 +33,7 @@ class HospitalServiceManager {
                         
                         hospitals?.append(hospital)
                     }
-                    if hospitals!.count%100 == 0 {
+                    if hospitals!.count > 0, hospitals!.count%100 == 0 {
                         observer.onNext((hospitals!, header!))
                     }
                 }
