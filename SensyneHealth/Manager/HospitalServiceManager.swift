@@ -11,9 +11,9 @@ import RxSwift
 
 class HospitalServiceManager {
     
-    func getAllHospitalListOnline() -> Observable<[Hospital]> {
+    func getAllHospitalListOnline() -> Observable<([Hospital],Hospital)> {
         
-        return Observable<[Hospital]>.create { observer in
+        return Observable<([Hospital],Hospital)>.create { observer in
             
             var hospitals:[Hospital]?
             let url = URL(string: Constant.Service.url)
@@ -22,20 +22,26 @@ class HospitalServiceManager {
                 let result = try String(contentsOf: url!, encoding: .macOSRoman)
                 
                 hospitals = []
-                for i in 1..<result.rows.count {
+                var header:Hospital?
+                
+                for i in 0..<result.rows.count {
                     let rowValue = result.rows[i].components(separatedBy:Constant.General.delimiter)
                     let hospital = Hospital.init(values: rowValue)
-                    hospitals?.append(hospital)
-                    
+                    if i == 0{//header
+                        header = hospital
+                    }else{
+                        
+                        hospitals?.append(hospital)
+                    }
                     if hospitals!.count%100 == 0 {
-                        observer.onNext(hospitals!)
+                        observer.onNext((hospitals!, header!))
                     }
                 }
-                observer.onNext(hospitals!)
+                observer.onNext((hospitals!, header!))
             }
             catch {
                 print(error)
-                observer.onNext([])
+                observer.onNext(([], Hospital.init(OrganisationID: "", OrganisationCode: "", OrganisationType: "", OrganisationName: "")))
             }
             return Disposables.create {
                 

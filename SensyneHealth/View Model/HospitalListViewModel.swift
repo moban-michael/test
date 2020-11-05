@@ -12,7 +12,7 @@ import RxSwift
 class HospitalListViewModel {
     
     let hospitalDataManager: HospitalDataManager  = HospitalDataManager()
-    var hospitallist        = PublishRelay<([Hospital])>()
+    var hospitallist        = PublishRelay<(([Hospital], Hospital))>()
     private let disposeBag  = DisposeBag()
     
     
@@ -22,11 +22,15 @@ class HospitalListViewModel {
             
             if let hospitals = event.element {
                 
-                let sortedList = hospitals.sorted {
+                let sortedList = hospitals.0.sorted {
                     $0.OrganisationName < $1.OrganisationName
                 }
-                self.hospitallist.accept(sortedList)
+                self.hospitallist.accept((sortedList,hospitals.1))
             }
         }.disposed(by: self.disposeBag)
+    }
+    
+    func getFilteredHospitalList(hospitals:[Hospital], selectedFilter: (FilterCategory,String)) -> [Hospital] {
+        return selectedFilter.0.getFilteredList(hospitals: hospitals, filter: selectedFilter.1)
     }
 }

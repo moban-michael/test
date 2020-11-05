@@ -13,8 +13,9 @@ class HospitalListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     fileprivate var hospitals       = [Hospital]()
+    fileprivate var listAndHeader   : ([Hospital],Hospital)?
     fileprivate var filteredList    = [Hospital]()
-    fileprivate var filterring      = false
+    fileprivate var isFilterring    = false
     private let disposeBag          = DisposeBag()
     let hospitalListViewModal       = HospitalListViewModel()
     var selectedHospital            : Hospital?
@@ -34,6 +35,10 @@ class HospitalListViewController: UIViewController {
         let search = UISearchController(searchResultsController: nil)
         search.searchResultsUpdater = self
         self.navigationItem.searchController = search
+        let rightBarButtonItem: UIBarButtonItem = UIBarButtonItem(title: "Filter", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.filterTapped))
+        rightBarButtonItem.tintColor = UIColor.black
+        navigationItem.rightBarButtonItem = rightBarButtonItem
+        //UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font : UIFont(name: "OpenSans", size: 14)! ], for: .normal)
     }
     
     //MARK: Loading Data
@@ -41,8 +46,9 @@ class HospitalListViewController: UIViewController {
         //self.showProgress() // uncomment this if required a progress view to indicate user
         hospitalListViewModal.hospitallist.asObservable().subscribe { (event) in
             if let hospitalList = event.element{
-                //self.hospitals.removeAll()
-                self.hospitals.append(contentsOf: hospitalList)
+                self.hospitals.removeAll()
+                self.hospitals.append(contentsOf: hospitalList.0)
+                self.listAndHeader = hospitalList
                 onMainQueue {
                     self.tableView.reloadData()
                     //self.hideProgress()
@@ -77,12 +83,12 @@ extension TableViewDataSource: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.filterring ? self.filteredList.count : hospitals.count
+        return self.isFilterring ? self.filteredList.count : hospitals.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell Identifier", for: indexPath)
-        cell.textLabel?.text = self.filterring ? self.filteredList[indexPath.row].OrganisationName : self.hospitals[indexPath.row].OrganisationName
+        cell.textLabel?.text = self.isFilterring ? self.filteredList[indexPath.row].OrganisationName : self.hospitals[indexPath.row].OrganisationName
         cell.tag = indexPath.row
         return cell
     }
@@ -107,13 +113,49 @@ extension SearchResultsDelegate: UISearchResultsUpdating {
             self.filteredList = self.hospitals.filter({ (hospital) -> Bool in
                 return hospital.OrganisationName.lowercased().contains(text.lowercased())
             })
-            self.filterring = true
+            self.isFilterring = true
         }
         else {
-            self.filterring = false
+            self.isFilterring = false
             self.filteredList = [Hospital]()
         }
         self.tableView.reloadData()
+    }
+}
+
+private typealias Filter = HospitalListViewController
+extension Filter {
+    
+    @objc func filterTapped(sender: UIBarButtonItem){
+        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "PopupView") as! FilterPopUpViewController
+        vc.hospitals = listAndHeader
+        vc.selectedFilter.asObservable().subscribe { (event) in
+            if let selectedFilter = event.element{
+                if selectedFilter.0 == FilterCategory.None{
+                    self.isFilterring = false
+                    self.filteredList = [Hospital]()
+                }else{
+                    self.filteredList.removeAll()
+                    self.isFilterring = true
+                    self.filteredList = self.hospitalListViewModal.getFilteredHospitalList(hospitals: self.hospitals, selectedFilter: selectedFilter)
+                }
+                self.tableView.reloadData()
+            }
+        }.disposed(by: self.disposeBag)
+        vc.modalPresentationStyle = UIModalPresentationStyle.popover
+        let popover: UIPopoverPresentationController = vc.popoverPresentationController!
+        popover.barButtonItem = sender
+        popover.delegate = self
+        present(vc, animated: true, completion:nil)
+    }
+}
+
+private typealias PopoverDelegate = HospitalListViewController
+extension PopoverDelegate: UIPopoverPresentationControllerDelegate {
+    
+    func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle{
+        return .none
     }
 }
 

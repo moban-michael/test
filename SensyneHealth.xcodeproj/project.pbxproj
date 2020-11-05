@@ -27,6 +27,9 @@
 		8121D57B25522D52009FD5E0 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8121D57A25522D52009FD5E0 /* Constant.swift */; };
 		8121D58C25523CE9009FD5E0 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8121D58B25523CE9009FD5E0 /* StringExtension.swift */; };
 		8121D59525525531009FD5E0 /* ParserUtlis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8121D59425525531009FD5E0 /* ParserUtlis.swift */; };
+		8121D6002553525B009FD5E0 /* FilterPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8121D5FF2553525B009FD5E0 /* FilterPopUpViewController.swift */; };
+		8121D605255353A2009FD5E0 /* FilterPopupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8121D604255353A2009FD5E0 /* FilterPopupViewModel.swift */; };
+		8121D60A255378A8009FD5E0 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8121D609255378A8009FD5E0 /* ArrayExtension.swift */; };
 		B6FD670B7014373349F3F005 /* Pods_SensyneHealthTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D1565620ABC80E1DE9ED8D1 /* Pods_SensyneHealthTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +78,9 @@
 		8121D57A25522D52009FD5E0 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		8121D58B25523CE9009FD5E0 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		8121D59425525531009FD5E0 /* ParserUtlis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserUtlis.swift; sourceTree = "<group>"; };
+		8121D5FF2553525B009FD5E0 /* FilterPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPopUpViewController.swift; sourceTree = "<group>"; };
+		8121D604255353A2009FD5E0 /* FilterPopupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPopupViewModel.swift; sourceTree = "<group>"; };
+		8121D609255378A8009FD5E0 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		9B50648AC1790ACC46637E3F /* Pods-SensyneHealthTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SensyneHealthTests.debug.xcconfig"; path = "Target Support Files/Pods-SensyneHealthTests/Pods-SensyneHealthTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A96D9CC2EA0E625493B972CC /* Pods-SensyneHealth-SensyneHealthUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SensyneHealth-SensyneHealthUITests.release.xcconfig"; path = "Target Support Files/Pods-SensyneHealth-SensyneHealthUITests/Pods-SensyneHealth-SensyneHealthUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C3751C18C68EE1B48AE19ED3 /* Pods-SensyneHealthTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SensyneHealthTests.release.xcconfig"; path = "Target Support Files/Pods-SensyneHealthTests/Pods-SensyneHealthTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -215,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				8121D52B255207AB009FD5E0 /* HospitalListViewModel.swift */,
+				8121D604255353A2009FD5E0 /* FilterPopupViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -224,6 +231,7 @@
 			children = (
 				8121D53E25520A1E009FD5E0 /* UIViewControllerExtensions.swift */,
 				8121D58B25523CE9009FD5E0 /* StringExtension.swift */,
+				8121D609255378A8009FD5E0 /* ArrayExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -250,6 +258,7 @@
 			children = (
 				8121D4EF25520372009FD5E0 /* HospitalListViewController.swift */,
 				8121D561255215FB009FD5E0 /* HospitalDetailViewController.swift */,
+				8121D5FF2553525B009FD5E0 /* FilterPopUpViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -509,12 +518,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8121D60A255378A8009FD5E0 /* ArrayExtension.swift in Sources */,
 				8121D4F025520372009FD5E0 /* HospitalListViewController.swift in Sources */,
+				8121D6002553525B009FD5E0 /* FilterPopUpViewController.swift in Sources */,
 				8121D4EC25520372009FD5E0 /* AppDelegate.swift in Sources */,
 				8121D53F25520A1E009FD5E0 /* UIViewControllerExtensions.swift in Sources */,
 				8121D55B25520EFE009FD5E0 /* HospitalDataManager.swift in Sources */,
 				8121D52C255207AB009FD5E0 /* HospitalListViewModel.swift in Sources */,
 				8121D4EE25520372009FD5E0 /* SceneDelegate.swift in Sources */,
+				8121D605255353A2009FD5E0 /* FilterPopupViewModel.swift in Sources */,
 				8121D56A2552281B009FD5E0 /* HospitalServiceManager.swift in Sources */,
 				8121D57B25522D52009FD5E0 /* Constant.swift in Sources */,
 				8121D59525525531009FD5E0 /* ParserUtlis.swift in Sources */,
