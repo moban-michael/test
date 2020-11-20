@@ -12,17 +12,17 @@ import Alamofire
 
 class HospitalDataManager {
     
-    let hospitalServiceManager: HospitalServiceManager  = HospitalServiceManager()
     private let disposeBag  = DisposeBag()
 
     // Here we decide if it needs to do offline or online call
     func getAllHospitalList() -> Observable<([Hospital],Hospital)> {
-        
+        let hospitalServiceManager: HospitalServiceManager  = HospitalServiceManager()
+
         return Observable<([Hospital],Hospital)>.create { observer in
             
             if (NetworkReachabilityManager()?.isReachable)!{
                 
-                _ = self.hospitalServiceManager.getAllHospitalListOnline().subscribe(onNext: { (hospitalList) in
+                _ = hospitalServiceManager.getAllHospitalListOnline().subscribe(onNext: { (hospitalList) in
                     if hospitalList.0.count <= 0 { //Error
                         self.readFromCSV().subscribe(onNext: { (hospitalList) in
                             observer.onNext(hospitalList)

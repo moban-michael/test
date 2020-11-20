@@ -3,4 +3,70 @@
    uuid = "B810BD9E-C011-43DE-A725-0653BAF083F2"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8AA94F96-12BD-43A6-B78D-7901FD479CD2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SensyneHealth/View/HospitalListViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F51FF24A-BDAE-4CF1-B7B5-077D87D6D72F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SensyneHealth/View Model/HospitalListViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "getHospitalList()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F51FF24A-BDAE-4CF1-B7B5-077D87D6D72F - 48df687a9df4bb3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SensyneHealth.HospitalListViewModel.getHospitalList() -&gt; ()"
+                  moduleName = "SensyneHealth"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mobanmichael/Documents/GitHub/SensyneHealth/SensyneHealth/View%20Model/HospitalListViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "25">
+               </Location>
+               <Location
+                  uuid = "F51FF24A-BDAE-4CF1-B7B5-077D87D6D72F - 5dd22f3480c5bc23"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (RxSwift.Event&lt;(Swift.Array&lt;SensyneHealth.Hospital&gt;, SensyneHealth.Hospital)&gt;) -&gt; () in SensyneHealth.HospitalListViewModel.getHospitalList() -&gt; ()"
+                  moduleName = "SensyneHealth"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mobanmichael/Documents/GitHub/SensyneHealth/SensyneHealth/View%20Model/HospitalListViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "173">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

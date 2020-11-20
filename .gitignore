@@ -403,3 +403,5 @@ Pods/Target Support Files/RxSwift/RxSwift-umbrella.h
 Pods/Target Support Files/RxSwift/RxSwift.debug.xcconfig
 Pods/Target Support Files/RxSwift/RxSwift.modulemap
 Pods/Target Support Files/RxSwift/RxSwift.release.xcconfig
+SensyneHealth.xcworkspace/xcuserdata/mobanmichael.xcuserdatad/UserInterfaceState.xcuserstate
+*.xcbkptlist
